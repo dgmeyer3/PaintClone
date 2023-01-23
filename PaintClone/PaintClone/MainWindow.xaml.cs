@@ -24,5 +24,15 @@ namespace PaintClone
         {
             InitializeComponent();
         }
+
+        private void menuNew_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Color_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
