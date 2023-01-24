@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -16,9 +17,7 @@ using System.Windows.Shapes;
 
 namespace PaintClone
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    //TODO: Add erase/select modes, undo/redo, and enable shape drawing.
     public partial class MainWindow : Window
     {
         double brushDouble = 3;
@@ -28,9 +27,19 @@ namespace PaintClone
             InitializeComponent();
         }
 
-        private void menuNew_Click(object sender, RoutedEventArgs e)
+        private void Save_Click(object sender, RoutedEventArgs e)
         {
-
+            SaveFileDialog savedlg = new SaveFileDialog();
+            savedlg.ShowDialog();
+        }
+        private void New_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+        private void Open_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog opendlg = new OpenFileDialog();
+            opendlg.ShowDialog();
         }
 
         private void Circle_Click(object sender, RoutedEventArgs e)
@@ -43,10 +52,18 @@ namespace PaintClone
 
         }
 
+        private void Rectangle_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void Upsize_Click(object sender, RoutedEventArgs e)
         {
             //brushSize textbox needs a method that updates the brushAttr height/width when manually changed outside of a button cick
-            brushDouble++;
+            if(brushDouble < Int32.MaxValue)
+            {
+                brushDouble++;
+            }
 
             brushSize.Text = brushDouble.ToString();
             
@@ -56,7 +73,10 @@ namespace PaintClone
 
         private void Downsize_Click(object sender, RoutedEventArgs e)
         {
-            brushDouble--;
+            if(brushDouble > 1)
+            {
+                brushDouble--;
+            }
 
             brushSize.Text = brushDouble.ToString();
 
@@ -67,11 +87,6 @@ namespace PaintClone
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
-
-        }
-
-        private void Rectangle_Click(object sender, RoutedEventArgs e)
-        {
 
         }
 
