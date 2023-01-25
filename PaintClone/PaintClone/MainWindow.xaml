@@ -9,12 +9,14 @@
         Title="Paint Clone" Height="500" Width="800" SizeToContent="WidthAndHeight" WindowState="Normal">
 
     <DockPanel>
-        <ToolBar Height="50" DockPanel.Dock="Top">
-            <RadioButton Name="Brush" Content="Brush" Height="50" Width="80" Click="Brush_Click"></RadioButton>
-            <RadioButton Name="Line" Content="Line" Height="50" Width="80" Click="Line_Click"></RadioButton>
-            <RadioButton Name="Rectangle" Content="Rectangle" Height="50" Width="80" Click="Rectangle_Click"></RadioButton>
-            
-        </ToolBar>
+        <TabControl Height="100" DockPanel.Dock="Top">
+            <TabItem Header=" Paint">
+                <Button Name="Circle" Height="25" Width="25" Margin="10,0,759,0" VerticalAlignment="Top" ></Button>
+            </TabItem>
+
+
+
+        </TabControl>
 
         
         <Canvas x:Name="myOverlayCanvas" Height="450" Width="800" Background="White" 

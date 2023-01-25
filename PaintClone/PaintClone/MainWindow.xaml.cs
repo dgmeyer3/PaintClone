@@ -47,7 +47,9 @@ namespace PaintClone
 
         private void Line_Click(object sender, RoutedEventArgs e)
         {
-
+            currShape = myShapes.Line;
+            inkCanvas.EditingMode = InkCanvasEditingMode.None;
+            inkCanvasEdit = false;
         }
 
         private void Rectangle_Click(object sender, RoutedEventArgs e)
@@ -55,7 +57,13 @@ namespace PaintClone
             currShape = myShapes.Rectangle;
             inkCanvas.EditingMode = InkCanvasEditingMode.None;
             inkCanvasEdit = false;
+        }
 
+        private void Circle_Click(object sender, RoutedEventArgs e)
+        {
+            currShape = myShapes.Circle;
+            inkCanvas.EditingMode = InkCanvasEditingMode.None;
+            inkCanvasEdit = false;
         }
 
 
@@ -63,7 +71,6 @@ namespace PaintClone
         private void myOverlayCanvas_MouseDown(object sender, MouseButtonEventArgs e)
         {
             prevPoint = e.GetPosition(this);
-
         }
 
         private void myOverlayCanvas_MouseMove(object sender, MouseEventArgs e)
@@ -72,7 +79,6 @@ namespace PaintClone
             {
                 currPoint = e.GetPosition(this);
             }
-
         }
 
         private void myOverlayCanvas_MouseUp(object sender, MouseButtonEventArgs e)
@@ -102,7 +108,7 @@ namespace PaintClone
             };
 
             newRect.SetValue(Canvas.LeftProperty, Math.Min(prevPoint.X, currPoint.X));
-            newRect.SetValue(Canvas.TopProperty, Math.Min(prevPoint.Y - 50, currPoint.Y - 50));
+            newRect.SetValue(Canvas.TopProperty, Math.Min(prevPoint.Y - 100, currPoint.Y - 100));
             newRect.Width = Math.Abs(currPoint.X - prevPoint.X);
             newRect.Height = Math.Abs(currPoint.Y - prevPoint.Y);
 
@@ -119,7 +125,7 @@ namespace PaintClone
             };
 
             newEllipse.SetValue(Canvas.LeftProperty, Math.Min(prevPoint.X, currPoint.X));
-            newEllipse.SetValue(Canvas.TopProperty, Math.Min(prevPoint.Y - 50, currPoint.Y - 50));
+            newEllipse.SetValue(Canvas.TopProperty, Math.Min(prevPoint.Y - 100, currPoint.Y - 100));
             newEllipse.Width = Math.Abs(currPoint.X - prevPoint.X);
             newEllipse.Height = Math.Abs(currPoint.Y - prevPoint.Y);
 
@@ -127,7 +133,17 @@ namespace PaintClone
         }
         private void DrawLine()
         {
+            Line newLine = new Line()
+            {
+                Stroke = Brushes.Black,
+                StrokeThickness = 3,
+                X1 = prevPoint.X,
+                Y1 = prevPoint.Y - 100,
+                X2 = currPoint.X,
+                Y2 = currPoint.Y - 100
+            };
 
+            myOverlayCanvas.Children.Add(newLine);
         }
     }
 }
