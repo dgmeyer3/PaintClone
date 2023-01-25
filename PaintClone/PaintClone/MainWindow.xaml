@@ -6,80 +6,31 @@
         xmlns:local="clr-namespace:PaintClone"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="PaintClone.MainWindow"
         mc:Ignorable="d"
-        Title="Paint Clone" Height="500" Width="800" SizeToContent="WidthAndHeight">
+        Title="Paint Clone" Height="500" Width="800" SizeToContent="WidthAndHeight" WindowState="Normal">
 
-    <StackPanel>
-        <TabControl Height="100">
-            <TabItem Header="FIle">
-                <Grid Background="#FFE5E5E5">
-                    <Button Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                            Height="36" Width="48" Click="Save_Click"/>
-                    <Button Content="Open" HorizontalAlignment="Left" VerticalAlignment="Bottom"
-                            Height="36" Width="48" Click="Open_Click"/>
-                    <Button Content="New" HorizontalAlignment="Left" Margin="48,0,0,36" 
-                            Width="48" Click="New_Click"/>
-                    <Button Content="Print" HorizontalAlignment="Left" Margin="48,0,0,0" 
-                            VerticalAlignment="Bottom" Height="36" Width="48"/>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Paint">
-                <Grid Background="#FFE5E5E5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="5*"/>
-                        <ColumnDefinition Width="7*"/>
-                        <ColumnDefinition Width="782*"/>
-                    </Grid.ColumnDefinitions>
-                    <ComboBox x:Name ="colorBox" Grid.Column="2" HorizontalAlignment="Left" 
-                              Margin="259,6,0,0" 
-                              VerticalAlignment="Top" Width="74" Height="26" 
-                              SelectionChanged="colorBox_SelectionChanged">
-                        <ComboBoxItem>Blue</ComboBoxItem>
-                        <ComboBoxItem>Red</ComboBoxItem>
-                        <ComboBoxItem>Green</ComboBoxItem>
-                        
-                    </ComboBox>
-                    <Button Content="Rectangle" HorizontalAlignment="Left" 
-                            VerticalAlignment="Top" Grid.ColumnSpan="3"
-                            Height="53" Width="65" Click="Rectangle_Click"/>
-                    <Button Content="Circle" HorizontalAlignment="Left" VerticalAlignment="Top"
-                            Height="53" Width="65"
-                            Grid.Column="2" Margin="53,0,0,0" Click="Circle_Click"/>
-                    <Button Content="Triangle" HorizontalAlignment="Left" VerticalAlignment="Top"
-                            Height="53" Width="65"
-                            Grid.Column="2" Margin="118,0,0,0" Click="Triangle_Click"/>
-                    <Label Grid.Column="2" Content="Shapes" HorizontalAlignment="Left" Height="25"
-                           Margin="53,47,0,0" 
-                           VerticalAlignment="Top" Width="56" HorizontalContentAlignment="Center"/>
-                    <Label Grid.Column="2" Content="Color:" HorizontalAlignment="Left" Height="25"
-                           Margin="203,6,0,0" 
-                           VerticalAlignment="Top" Width="56" HorizontalContentAlignment="Right"/>
-                    <Label Grid.Column="2" Content="Size:" HorizontalAlignment="Left" Height="25
-                           " Margin="203,38,0,0" 
-                        VerticalAlignment="Top" Width="56" HorizontalContentAlignment="Right"/>
-                    <Button Grid.Column="2" Content="↑" HorizontalAlignment="Left" 
-                            Margin="259,36,0,0" VerticalAlignment="Top" Width="15" 
-                            Height="15" VerticalContentAlignment="Top" FontSize="10" 
-                            Click="Upsize_Click"/>
-                    <Button Grid.Column="2" Content="↓" HorizontalAlignment="Left" Margin="259,52,0,0"
-                            VerticalAlignment="Top" Width="15" 
-                            Height="15" VerticalContentAlignment="Center" FontSize="10" 
-                            Click="Downsize_Click"/>
-                    <TextBox x:Name="brushSize" Grid.Column="2" HorizontalAlignment="Left" 
-                             Margin="279,42,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment
-                             ="Top" Width="26" TextChanged="TextBox_TextChanged" 
-                             HorizontalContentAlignment="Center"/>
-                </Grid>
-            </TabItem>
-        </TabControl>
+    <DockPanel>
+        <ToolBar Height="50" DockPanel.Dock="Top">
+            <RadioButton Name="Brush" Content="Brush" Height="50" Width="80" Click="Brush_Click"></RadioButton>
+            <RadioButton Name="Line" Content="Line" Height="50" Width="80" Click="Line_Click"></RadioButton>
+            <RadioButton Name="Rectangle" Content="Rectangle" Height="50" Width="80" Click="Rectangle_Click"></RadioButton>
+            
+        </ToolBar>
+
         
-        <InkCanvas Height="383" Width="800">
-            <InkCanvas.DefaultDrawingAttributes>
-                <DrawingAttributes x:Name="strokeAttr"
-                                   Color="Black" Width="3"
-                                   Height="3"/>
-            </InkCanvas.DefaultDrawingAttributes>
-        </InkCanvas>
-        
-    </StackPanel>
-    
+        <Canvas x:Name="myOverlayCanvas" Height="450" Width="800" Background="White" 
+                MouseDown="myOverlayCanvas_MouseDown" MouseMove="myOverlayCanvas_MouseMove" 
+                MouseUp="myOverlayCanvas_MouseUp">
+            <InkCanvas Name="inkCanvas" Height ="450" Width="800">
+                <InkCanvas.DefaultDrawingAttributes>
+                    <DrawingAttributes x:Name="strokeAttr"
+                    Color="Black" Width="3"
+                    Height="3"/>
+                </InkCanvas.DefaultDrawingAttributes>
+            </InkCanvas>
+
+        </Canvas>
+
+
+    </DockPanel>
+
 </Window>
