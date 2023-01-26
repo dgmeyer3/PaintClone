@@ -35,7 +35,7 @@ namespace PaintClone
             Line, Circle, Rectangle, None
         }
 
-        private myShapes currShape = myShapes.Rectangle;
+        private myShapes currShape = myShapes.None;
 
         //ink canvas events
         private void Brush_Click(object sender, RoutedEventArgs e)
@@ -65,7 +65,6 @@ namespace PaintClone
             inkCanvas.EditingMode = InkCanvasEditingMode.None;
             inkCanvasEdit = false;
         }
-
 
         //overlay canvas events
         private void myOverlayCanvas_MouseDown(object sender, MouseButtonEventArgs e)
@@ -144,6 +143,11 @@ namespace PaintClone
             };
 
             myOverlayCanvas.Children.Add(newLine);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

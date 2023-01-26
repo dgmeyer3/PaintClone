@@ -10,15 +10,29 @@
 
     <DockPanel>
         <TabControl Height="100" DockPanel.Dock="Top">
-            <TabItem Header=" Paint">
-                <Button Name="Circle" Height="25" Width="25" Margin="10,0,759,0" VerticalAlignment="Top" ></Button>
+            <TabItem Header="File">
+
+            </TabItem>
+            <TabItem Header="Paint">
+                <Grid>
+                    <Button Name ="Brush" Content="Brush" HorizontalAlignment="Left" Margin="56,10,0,0" VerticalAlignment="Top"  
+                            Height="25" Width="25" Click="Brush_Click"/>
+                    <Button Name ="Rectangle" Content="Rect" HorizontalAlignment="Left" Margin="86,10,0,0" VerticalAlignment="Top"  
+                            Height="25" Width="26" Click="Rectangle_Click"/>
+                    <Button Name ="Line" Content="Line" HorizontalAlignment="Left" Margin="56,40,0,0" VerticalAlignment="Top"  
+                            Height="25" Width="26" Click="Line_Click"/>
+                    <Button Name ="Ellipse" Content="Ellipse" HorizontalAlignment="Left" Margin="87,40,0,0" VerticalAlignment="Top"  
+                            Height="25" Width="25" Click="Circle_Click"/>
+                    <Button Content="placehold" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Height="40" Width="40"/>
+
+                </Grid>
+
             </TabItem>
 
 
 
         </TabControl>
 
-        
         <Canvas x:Name="myOverlayCanvas" Height="450" Width="800" Background="White" 
                 MouseDown="myOverlayCanvas_MouseDown" MouseMove="myOverlayCanvas_MouseMove" 
                 MouseUp="myOverlayCanvas_MouseUp">
@@ -28,10 +42,9 @@
                     Color="Black" Width="3"
                     Height="3"/>
                 </InkCanvas.DefaultDrawingAttributes>
+
             </InkCanvas>
-
         </Canvas>
-
 
     </DockPanel>
 
