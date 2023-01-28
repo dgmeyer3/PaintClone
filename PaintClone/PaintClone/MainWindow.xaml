@@ -9,7 +9,7 @@
         Title="Paint Clone" Height="500" Width="800" SizeToContent="WidthAndHeight" WindowState="Normal">
 
     <Window.Resources>
-        <Style x:Key="myButton" TargetType="{x:Type Button}">
+        <Style x:Key="myButton" TargetType="{x:Type Button}" >
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
@@ -24,7 +24,7 @@
 
                         <ControlTemplate.Triggers>
                             <Trigger Property="Button.IsPressed" Value="True" >
-                                <Setter TargetName="NormalBorder" Property="BorderBrush" Value="Transparent" />
+                                <Setter TargetName="NormalBorder" Property="BorderBrush" Value="Transparent"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -39,23 +39,56 @@
 
             </TabItem>
             <TabItem Header="Paint">
-                <Grid>
-                    <Button Name ="Brush" Content="Brush" HorizontalAlignment="Left" Margin="56,10,0,0" VerticalAlignment="Top"  
-                            Height="25" Width="25" Click="Brush_Click" Style="{StaticResource myButton}"/>
-                    <Button Name ="Rectangle" Content="Rect" HorizontalAlignment="Left" Margin="86,10,0,0" VerticalAlignment="Top"  
-                            Height="25" Width="26" Click="Rectangle_Click" Style="{StaticResource myButton}"/>
-                    <Button Name ="Line" Content="Line" HorizontalAlignment="Left" Margin="56,40,0,0" VerticalAlignment="Top"  
-                            Height="25" Width="26" Click="Line_Click" Style="{StaticResource myButton}"/>
-                    <Button Name ="Ellipse" Content="Ellipse" HorizontalAlignment="Left" Margin="87,40,0,0" VerticalAlignment="Top"  
-                            Height="25" Width="25" Click="Circle_Click" Style="{StaticResource myButton}"/>
-                    <Button Content="placehold" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Height="40" 
-                            Width="40"/>
+                <Grid Margin="10,0,-10,0">
+                    <Button Name ="Brush" HorizontalAlignment="Left" Margin="56,10,0,0" VerticalAlignment="Top"  
+                            Height="25" Width="25" Click="Brush_Click" Style="{StaticResource myButton}"
+                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                        <Image Source="Resources/Paint.png" Width="20" Height="20"/>
+                    </Button>
+
+                    <Button Name ="Rectangle" HorizontalAlignment="Left" Margin="86,10,0,0" VerticalAlignment="Top"  
+                            Height="25" Width="26" Click="Rectangle_Click" Style="{StaticResource myButton}"
+                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                        <Image Source="Resources/Rectangle.png" Width="20" Height="20"/>
+                    </Button>
+
+                    <Button Name ="Line" HorizontalAlignment="Left" Margin="56,40,0,0" VerticalAlignment="Top"  
+                            Height="25" Width="26" Click="Line_Click" Style="{StaticResource myButton}"
+                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                        <Image Source="Resources/Line.png" Width="20" Height="20"/>
+                    </Button>
+
+                    <Button Name ="Ellipse" HorizontalAlignment="Left" Margin="87,40,0,0" VerticalAlignment="Top"  
+                            Height="25" Width="25" Click="Circle_Click" Style="{StaticResource myButton}"
+                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                        <Image Source="Resources/Ellipse.png"/>
+                    </Button>
+                    <Button HorizontalAlignment="Left" Margin="179,16,0,0" VerticalAlignment="Top" Width="20" 
+                            Height="20" Background="Red" BorderBrush="Black" BorderThickness="1.5" Click="ColorChange_click"/>
+                    <Button HorizontalAlignment="Left" Margin="179,40,0,0" VerticalAlignment="Top" Width="20" 
+                            Height="20" Background="Orange" BorderBrush="Black" BorderThickness="1.5"/>
+                    <Button HorizontalAlignment="Left" Margin="204,16,0,0" VerticalAlignment="Top" Width="20" 
+                            Height="20" Background="Yellow" BorderBrush="Black" BorderThickness="1.5"/>
+                    <Button HorizontalAlignment="Left" Margin="204,40,0,0" VerticalAlignment="Top" Width="20" 
+                            Height="20" Background="Green" BorderBrush="Black" BorderThickness="1.5"/>
+                    <Button HorizontalAlignment="Left" Margin="229,16,0,0" VerticalAlignment="Top" Width="20" 
+                            Height="20" Background="Blue" BorderBrush="Black" BorderThickness="1.5"/>
+                    <Button HorizontalAlignment="Left" Margin="229,40,0,0" VerticalAlignment="Top" Width="20" 
+                            Height="20" Background="Indigo" BorderBrush="Black" BorderThickness="1.5"/>
+                    <Button HorizontalAlignment="Left" Margin="254,16,0,0" VerticalAlignment="Top" Width="20" 
+                            Height="20" Background="Violet" BorderBrush="Black" BorderThickness="1.5"/>
+                    <Button HorizontalAlignment="Left" Margin="254,40,0,0" VerticalAlignment="Top" Width="20" 
+                            Height="20" Background="Purple" BorderBrush="Black" BorderThickness="1.5"/>
+                    <Button HorizontalAlignment="Left" Margin="279,16,0,0" VerticalAlignment="Top" Width="20" 
+                            Height="20" Background="Black" BorderBrush="Black" BorderThickness="1.5"/>
+                    <Button HorizontalAlignment="Left" Margin="279,40,0,0" VerticalAlignment="Top" Width="20" 
+                            Height="20" Background="White" BorderBrush="Black" BorderThickness="1.5"/>
+                    <Label Content="SHAPE" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                    <Label Content="COLOR" HorizontalAlignment="Left" Margin="127,26,0,0" VerticalAlignment="Top"/>
 
                 </Grid>
 
             </TabItem>
-
-
 
         </TabControl>
 
