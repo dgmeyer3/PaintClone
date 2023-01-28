@@ -8,6 +8,31 @@
         mc:Ignorable="d"
         Title="Paint Clone" Height="500" Width="800" SizeToContent="WidthAndHeight" WindowState="Normal">
 
+    <Window.Resources>
+        <Style x:Key="myButton" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <ContentControl>
+                            <Grid>
+                                <Border Name="PressedBorder" BorderBrush="Gray" BorderThickness="1,1,2,2">
+                                    <ContentPresenter/>
+                                </Border>
+                                <Border Name="NormalBorder" BorderBrush="Black"  BorderThickness="2"/>
+                            </Grid>
+                        </ContentControl>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsPressed" Value="True" >
+                                <Setter TargetName="NormalBorder" Property="BorderBrush" Value="Transparent" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <DockPanel>
         <TabControl Height="100" DockPanel.Dock="Top">
             <TabItem Header="File">
@@ -16,14 +41,15 @@
             <TabItem Header="Paint">
                 <Grid>
                     <Button Name ="Brush" Content="Brush" HorizontalAlignment="Left" Margin="56,10,0,0" VerticalAlignment="Top"  
-                            Height="25" Width="25" Click="Brush_Click"/>
+                            Height="25" Width="25" Click="Brush_Click" Style="{StaticResource myButton}"/>
                     <Button Name ="Rectangle" Content="Rect" HorizontalAlignment="Left" Margin="86,10,0,0" VerticalAlignment="Top"  
-                            Height="25" Width="26" Click="Rectangle_Click"/>
+                            Height="25" Width="26" Click="Rectangle_Click" Style="{StaticResource myButton}"/>
                     <Button Name ="Line" Content="Line" HorizontalAlignment="Left" Margin="56,40,0,0" VerticalAlignment="Top"  
-                            Height="25" Width="26" Click="Line_Click"/>
+                            Height="25" Width="26" Click="Line_Click" Style="{StaticResource myButton}"/>
                     <Button Name ="Ellipse" Content="Ellipse" HorizontalAlignment="Left" Margin="87,40,0,0" VerticalAlignment="Top"  
-                            Height="25" Width="25" Click="Circle_Click"/>
-                    <Button Content="placehold" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Height="40" Width="40"/>
+                            Height="25" Width="25" Click="Circle_Click" Style="{StaticResource myButton}"/>
+                    <Button Content="placehold" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Height="40" 
+                            Width="40"/>
 
                 </Grid>
 
