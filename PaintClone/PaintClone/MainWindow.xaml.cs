@@ -26,6 +26,8 @@ namespace PaintClone
         Point prevPoint;
         Point currPoint;
 
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -43,6 +45,8 @@ namespace PaintClone
             inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
             inkCanvasEdit = true;
             currShape = myShapes.None;
+
+
         }
 
         private void Line_Click(object sender, RoutedEventArgs e)
@@ -50,6 +54,7 @@ namespace PaintClone
             currShape = myShapes.Line;
             inkCanvas.EditingMode = InkCanvasEditingMode.None;
             inkCanvasEdit = false;
+
         }
 
         private void Rectangle_Click(object sender, RoutedEventArgs e)
@@ -57,6 +62,7 @@ namespace PaintClone
             currShape = myShapes.Rectangle;
             inkCanvas.EditingMode = InkCanvasEditingMode.None;
             inkCanvasEdit = false;
+
         }
 
         private void Circle_Click(object sender, RoutedEventArgs e)
@@ -95,7 +101,6 @@ namespace PaintClone
                     break;
             }
         }
-
         private void DrawRectangle()
         {
             Rectangle newRect = new Rectangle()
@@ -144,10 +149,10 @@ namespace PaintClone
 
             myOverlayCanvas.Children.Add(newLine);
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ColorChange_click(object sender, RoutedEventArgs e)
         {
-
+            strokeAttr.Color = (Color)
+                ColorConverter.ConvertFromString("Red");
         }
     }
 }
