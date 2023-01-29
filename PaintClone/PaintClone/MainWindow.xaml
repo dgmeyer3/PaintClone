@@ -64,7 +64,8 @@
                         <Image Source="Resources/Ellipse.png"/>
                     </Button>
                     <Button HorizontalAlignment="Left" Margin="179,16,0,0" VerticalAlignment="Top" Width="20" 
-                            Height="20" Background="Red" BorderBrush="Black" BorderThickness="1.5" Click="ColorChange_click"/>
+                            Height="20" Background="Red" BorderBrush="Black" BorderThickness="1.5" 
+                            Click="ColorChange_click" />
                     <Button HorizontalAlignment="Left" Margin="179,40,0,0" VerticalAlignment="Top" Width="20" 
                             Height="20" Background="Orange" BorderBrush="Black" BorderThickness="1.5"/>
                     <Button HorizontalAlignment="Left" Margin="204,16,0,0" VerticalAlignment="Top" Width="20" 
