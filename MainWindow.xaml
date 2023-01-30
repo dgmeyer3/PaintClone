@@ -1,0 +1,127 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PaintClone"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="PaintClone.MainWindow"
+        mc:Ignorable="d"
+        Title="Paint Clone" Height="500" Width="800" SizeToContent="WidthAndHeight" WindowState="Normal">
+
+    <Window.Resources>
+        <Style x:Key="myButton" TargetType="{x:Type Button}" >
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <ContentControl>
+                            <Grid>
+                                <Border Name="PressedBorder" BorderBrush="Gray" BorderThickness="1,1,2,2">
+                                    <ContentPresenter/>
+                                </Border>
+                                <Border Name="NormalBorder" BorderBrush="Black"  BorderThickness="2"/>
+                            </Grid>
+                        </ContentControl>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsPressed" Value="True" >
+                                <Setter TargetName="NormalBorder" Property="BorderBrush" Value="Transparent"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="RightButtonStyle" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Border" Value="1.5"/>
+            <Setter Property="Borderbrush" Value="Black"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="20"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="BlueViolet"></Setter>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="False">
+                    <Setter Property="Background" Value="Yellow" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <DockPanel>
+        <TabControl Height="100" DockPanel.Dock="Top">
+            <TabItem Header="File">
+
+            </TabItem>
+            <TabItem Header="Paint">
+                <Grid Margin="10,0,-10,0">
+                    <Button Name ="Brush" HorizontalAlignment="Left" Margin="56,10,0,0" VerticalAlignment="Top"  
+                            Height="25" Width="25" Click="Brush_Click" Style="{StaticResource myButton}"
+                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                        <Image Source="Resources/Paint.png" Width="20" Height="20"/>
+                    </Button>
+
+                    <Button Name ="Rectangle" HorizontalAlignment="Left" Margin="86,10,0,0" VerticalAlignment="Top"  
+                            Height="25" Width="26" Click="Rectangle_Click" Style="{StaticResource myButton}"
+                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                        <Image Source="Resources/Rectangle.png" Width="20" Height="20"/>
+                    </Button>
+
+                    <Button Name ="Line" HorizontalAlignment="Left" Margin="56,40,0,0" VerticalAlignment="Top"  
+                            Height="25" Width="26" Click="Line_Click" Style="{StaticResource myButton}"
+                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                        <Image Source="Resources/Line.png" Width="20" Height="20"/>
+                    </Button>
+
+                    <Button Name ="Ellipse" HorizontalAlignment="Left" Margin="87,40,0,0" VerticalAlignment="Top"  
+                            Height="25" Width="25" Click="Circle_Click" Style="{StaticResource myButton}"
+                            HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                        <Image Source="Resources/Ellipse.png"/>
+                    </Button>
+                    <Button  Margin="179,16,0,0" VerticalAlignment="Top" Background="Red"  
+                            Click="ColorChange_click" />
+                    <Button  Margin="179,40,0,0" VerticalAlignment="Top" Background="Orange" />
+                    <Button  Margin="204,16,0,0" VerticalAlignment="Top" Background="Yellow" />
+                    <Button  Margin="204,40,0,0" VerticalAlignment="Top" Background="Green" />
+                    <Button  Margin="229,16,0,0" VerticalAlignment="Top" Background="Blue" />
+                    <Button  Margin="229,40,0,0" VerticalAlignment="Top" Background="Indigo" />
+                    <Button  Margin="254,16,0,0" VerticalAlignment="Top" Background="Violet" />
+                    <Button  Margin="254,40,0,0" VerticalAlignment="Top" Background="Purple" />
+                    <Button  Margin="279,16,0,0" VerticalAlignment="Top" Background="Black" />
+                    <Button  Margin="279,40,0,0" VerticalAlignment="Top" Background="White" />
+                    <Label Content="SHAPE" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                    <Label Content="COLOR" HorizontalAlignment="Left" Margin="127,26,0,0" VerticalAlignment="Top"/>
+
+                </Grid>
+
+            </TabItem>
+
+        </TabControl>
+
+        <Canvas x:Name="myOverlayCanvas" Height="450" Width="800" Background="White" 
+                MouseDown="myOverlayCanvas_MouseDown" MouseMove="myOverlayCanvas_MouseMove" 
+                MouseUp="myOverlayCanvas_MouseUp">
+            <InkCanvas Name="inkCanvas" Height ="450" Width="800">
+                <InkCanvas.DefaultDrawingAttributes>
+                    <DrawingAttributes x:Name="strokeAttr"
+                    Color="Black" Width="3"
+                    Height="3"/>
+                </InkCanvas.DefaultDrawingAttributes>
+
+            </InkCanvas>
+        </Canvas>
+
+    </DockPanel>
+
+</Window>
