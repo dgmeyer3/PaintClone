@@ -23,6 +23,7 @@ namespace PaintClone
     {
         double brushDouble = 3;
         bool inkCanvasEdit = true;
+        public string colorStr = "Black";
         Point prevPoint;
         Point currPoint;
 
@@ -45,8 +46,6 @@ namespace PaintClone
             inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
             inkCanvasEdit = true;
             currShape = myShapes.None;
-
-
         }
 
         private void Line_Click(object sender, RoutedEventArgs e)
@@ -54,7 +53,6 @@ namespace PaintClone
             currShape = myShapes.Line;
             inkCanvas.EditingMode = InkCanvasEditingMode.None;
             inkCanvasEdit = false;
-
         }
 
         private void Rectangle_Click(object sender, RoutedEventArgs e)
@@ -62,7 +60,6 @@ namespace PaintClone
             currShape = myShapes.Rectangle;
             inkCanvas.EditingMode = InkCanvasEditingMode.None;
             inkCanvasEdit = false;
-
         }
 
         private void Circle_Click(object sender, RoutedEventArgs e)
@@ -103,9 +100,12 @@ namespace PaintClone
         }
         private void DrawRectangle()
         {
+            Color color = (Color)ColorConverter.ConvertFromString(colorStr);
+            SolidColorBrush shapeBrush = new SolidColorBrush(color);
+
             Rectangle newRect = new Rectangle()
             {
-                Stroke = Brushes.Black,
+                Stroke = shapeBrush,
                 StrokeThickness = 3,
                 Height = 10,
                 Width = 10
@@ -120,9 +120,12 @@ namespace PaintClone
         }
         private void DrawCircle()
         {
+            Color color = (Color)ColorConverter.ConvertFromString(colorStr);
+            SolidColorBrush shapeBrush = new SolidColorBrush(color);
+
             Ellipse newEllipse = new Ellipse()
             {
-                Stroke = Brushes.Black,
+                Stroke = shapeBrush,
                 StrokeThickness = 3,
                 Height = 10,
                 Width = 10
@@ -137,9 +140,13 @@ namespace PaintClone
         }
         private void DrawLine()
         {
+            Color color = (Color)ColorConverter.ConvertFromString(colorStr);
+            SolidColorBrush shapeBrush = new SolidColorBrush(color);
+
             Line newLine = new Line()
             {
-                Stroke = Brushes.Black,
+
+                Stroke = shapeBrush,
                 StrokeThickness = 3,
                 X1 = prevPoint.X,
                 Y1 = prevPoint.Y - 100,
@@ -151,8 +158,11 @@ namespace PaintClone
         }
         private void ColorChange_click(object sender, RoutedEventArgs e)
         {
-            strokeAttr.Color = (Color)
-                ColorConverter.ConvertFromString("Red");
+            Button button = sender as Button;
+            strokeAttr.Color = (Color)ColorConverter.ConvertFromString(button.Name.ToString());
+            colorStr = strokeAttr.Color.ToString();
+           
         }
+        
     }
 }

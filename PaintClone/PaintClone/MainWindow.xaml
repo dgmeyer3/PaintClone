@@ -31,6 +31,38 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="paintButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="20"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            <Border Name="NormalBorder" BorderBrush="Black"  BorderThickness="1"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsPressed" Value="True" >
+                                <Setter TargetName="NormalBorder" Property="BorderBrush" Value="Gray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="BlueViolet"></Setter>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="False">
+                    <Setter Property="Background" Value="Yellow" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
     </Window.Resources>
 
     <DockPanel>
@@ -39,7 +71,7 @@
 
             </TabItem>
             <TabItem Header="Paint">
-                <Grid Margin="10,0,-10,0">
+                <Grid Margin="0,0,-2,0">
                     <Button Name ="Brush" HorizontalAlignment="Left" Margin="56,10,0,0" VerticalAlignment="Top"  
                             Height="25" Width="25" Click="Brush_Click" Style="{StaticResource myButton}"
                             HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
@@ -63,27 +95,26 @@
                             HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                         <Image Source="Resources/Ellipse.png"/>
                     </Button>
-                    <Button HorizontalAlignment="Left" Margin="179,16,0,0" VerticalAlignment="Top" Width="20" 
-                            Height="20" Background="Red" BorderBrush="Black" BorderThickness="1.5" 
+                    <Button  x:Name ="Red" Margin="179,16,0,0" VerticalAlignment="Top" Background="Red" Style="{StaticResource paintButton}" 
                             Click="ColorChange_click" />
-                    <Button HorizontalAlignment="Left" Margin="179,40,0,0" VerticalAlignment="Top" Width="20" 
-                            Height="20" Background="Orange" BorderBrush="Black" BorderThickness="1.5"/>
-                    <Button HorizontalAlignment="Left" Margin="204,16,0,0" VerticalAlignment="Top" Width="20" 
-                            Height="20" Background="Yellow" BorderBrush="Black" BorderThickness="1.5"/>
-                    <Button HorizontalAlignment="Left" Margin="204,40,0,0" VerticalAlignment="Top" Width="20" 
-                            Height="20" Background="Green" BorderBrush="Black" BorderThickness="1.5"/>
-                    <Button HorizontalAlignment="Left" Margin="229,16,0,0" VerticalAlignment="Top" Width="20" 
-                            Height="20" Background="Blue" BorderBrush="Black" BorderThickness="1.5"/>
-                    <Button HorizontalAlignment="Left" Margin="229,40,0,0" VerticalAlignment="Top" Width="20" 
-                            Height="20" Background="Indigo" BorderBrush="Black" BorderThickness="1.5"/>
-                    <Button HorizontalAlignment="Left" Margin="254,16,0,0" VerticalAlignment="Top" Width="20" 
-                            Height="20" Background="Violet" BorderBrush="Black" BorderThickness="1.5"/>
-                    <Button HorizontalAlignment="Left" Margin="254,40,0,0" VerticalAlignment="Top" Width="20" 
-                            Height="20" Background="Purple" BorderBrush="Black" BorderThickness="1.5"/>
-                    <Button HorizontalAlignment="Left" Margin="279,16,0,0" VerticalAlignment="Top" Width="20" 
-                            Height="20" Background="Black" BorderBrush="Black" BorderThickness="1.5"/>
-                    <Button HorizontalAlignment="Left" Margin="279,40,0,0" VerticalAlignment="Top" Width="20" 
-                            Height="20" Background="White" BorderBrush="Black" BorderThickness="1.5"/>
+                    <Button  Name ="Orange" Margin="179,40,0,0" VerticalAlignment="Top" Background="Orange" Style="{StaticResource paintButton}"
+                            Click="ColorChange_click" />
+                    <Button  Name ="Yellow" Margin="204,16,0,0" VerticalAlignment="Top" Background="Yellow" Style="{StaticResource paintButton}"
+                            Click="ColorChange_click" />
+                    <Button  Name ="Green" Margin="204,40,0,0" VerticalAlignment="Top" Background="Green" Style="{StaticResource paintButton}"
+                            Click="ColorChange_click" />
+                    <Button  Name ="Blue" Margin="229,16,0,0" VerticalAlignment="Top" Background="Blue" Style="{StaticResource paintButton}"
+                            Click="ColorChange_click" />
+                    <Button  Name ="Indigo" Margin="229,40,0,0" VerticalAlignment="Top" Background="Indigo" Style="{StaticResource paintButton}"
+                            Click="ColorChange_click" />
+                    <Button  Name ="Violet" Margin="254,16,0,0" VerticalAlignment="Top" Background="Violet" Style="{StaticResource paintButton}"
+                            Click="ColorChange_click" />
+                    <Button  Name ="Purple" Margin="254,40,0,0" VerticalAlignment="Top" Background="Purple" Style="{StaticResource paintButton}"
+                            Click="ColorChange_click" />
+                    <Button  Name ="Black" Margin="279,16,0,0" VerticalAlignment="Top" Background="Black" Style="{StaticResource paintButton}"
+                            Click="ColorChange_click" />
+                    <Button  Name ="White" Margin="279,40,0,0" VerticalAlignment="Top" Background="White" Style="{StaticResource paintButton}"
+                            Click="ColorChange_click" />
                     <Label Content="SHAPE" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
                     <Label Content="COLOR" HorizontalAlignment="Left" Margin="127,26,0,0" VerticalAlignment="Top"/>
 
