@@ -170,7 +170,7 @@ namespace PaintClone
         }
 
 
-        //i probably need to update brushdouble here so it can go in the label brushSize.Content
+        //i probably need to update brushdouble here so it can go in the label brushSize.Content test
         private void downSize_Click(object sender, RoutedEventArgs e)
         {
             if (strokeAttr.Width > 1 && strokeAttr.Height > 1)
