@@ -161,8 +161,38 @@ namespace PaintClone
             Button button = sender as Button;
             strokeAttr.Color = (Color)ColorConverter.ConvertFromString(button.Name.ToString());
             colorStr = strokeAttr.Color.ToString();
-           
+
         }
-        
+        private void upSize_Click(object sender, RoutedEventArgs e)
+        {
+            strokeAttr.Width += 1;
+            strokeAttr.Height += 1;
+        }
+
+
+        //i probably need to update brushdouble here so it can go in the label brushSize.Content test
+        private void downSize_Click(object sender, RoutedEventArgs e)
+        {
+            if (strokeAttr.Width > 1 && strokeAttr.Height > 1)
+            {
+                strokeAttr.Width -= 1;
+                strokeAttr.Height -= 1;
+            }
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Open_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void New_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
