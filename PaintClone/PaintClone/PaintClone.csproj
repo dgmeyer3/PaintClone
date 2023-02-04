@@ -116,5 +116,26 @@
   <ItemGroup>
     <Resource Include="Resources\Paint.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Draw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Cut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\paste.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

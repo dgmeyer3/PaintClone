@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PaintClone"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="PaintClone.MainWindow"
         mc:Ignorable="d"
-        Title="Paint Clone" Height="500" Width="800" SizeToContent="WidthAndHeight" WindowState="Normal">
+        Title="Paint Clone" Height="500" Width="500" SizeToContent="WidthAndHeight" WindowState="Normal">
 
     <Window.Resources>
         <Style x:Key="myButton" TargetType="{x:Type Button}" >
@@ -55,10 +55,10 @@
 
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="BlueViolet"></Setter>
+                    <Setter Property="Background" Value="Blue"></Setter>
                 </Trigger>
                 <Trigger Property="IsMouseOver" Value="False">
-                    <Setter Property="Background" Value="Yellow" />
+                    <Setter Property="Background" Value="Red" />
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -70,25 +70,25 @@
 
             <TabItem Header="Paint">
                 <Grid Margin="0,0,-2,0">
-                    <Button Name ="Brush" HorizontalAlignment="Left" Margin="56,10,0,0" VerticalAlignment="Top"  
+                    <Button Name ="Brush" HorizontalAlignment="Left" Margin="415,14,0,0" VerticalAlignment="Top"  
                             Height="25" Width="25" Click="Brush_Click" Style="{StaticResource myButton}"
                             HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                         <Image Source="Resources/Paint.png" Width="20" Height="20"/>
                     </Button>
 
-                    <Button Name ="Rectangle" HorizontalAlignment="Left" Margin="86,10,0,0" VerticalAlignment="Top"  
+                    <Button Name ="Rectangle" HorizontalAlignment="Left" Margin="386,14,0,0" VerticalAlignment="Top"  
                             Height="25" Width="26" Click="Rectangle_Click" Style="{StaticResource myButton}"
                             HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                         <Image Source="Resources/Rectangle.png" Width="20" Height="20"/>
                     </Button>
 
-                    <Button Name ="Line" HorizontalAlignment="Left" Margin="56,40,0,0" VerticalAlignment="Top"  
+                    <Button Name ="Line" HorizontalAlignment="Left" Margin="386,42,0,0" VerticalAlignment="Top"  
                             Height="25" Width="26" Click="Line_Click" Style="{StaticResource myButton}"
                             HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                         <Image Source="Resources/Line.png" Width="20" Height="20"/>
                     </Button>
 
-                    <Button Name ="Ellipse" HorizontalAlignment="Left" Margin="87,40,0,0" VerticalAlignment="Top"  
+                    <Button Name ="Ellipse" HorizontalAlignment="Left" Margin="415,42,0,0" VerticalAlignment="Top"  
                             Height="25" Width="25" Click="Circle_Click" Style="{StaticResource myButton}"
                             HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                         <Image Source="Resources/Ellipse.png"/>
@@ -113,9 +113,9 @@
                             Click="ColorChange_click" />
                     <Button  Name ="White" Margin="279,40,0,0" VerticalAlignment="Top" Background="White" Style="{StaticResource paintButton}"
                             Click="ColorChange_click" />
-                    <Label Content="Shape" HorizontalAlignment="Left" Margin="14,44,0,0" VerticalAlignment="Top"
+                    <Label Content="Shape" HorizontalAlignment="Left" Margin="395,-4,0,0" VerticalAlignment="Top"
                            FontSize="10"/>
-                    <Label Content="Color" HorizontalAlignment="Left" Margin="140,44,0,0" VerticalAlignment="Top" 
+                    <Label Content="Color" HorizontalAlignment="Left" Margin="223,-4,0,0" VerticalAlignment="Top" 
                            FontSize="10"/>
 
                     <Label  Name="BrushSize" HorizontalAlignment="Left" Margin="317,27,0,0" Content="3" 
@@ -133,22 +133,22 @@
                     </Button>
 
                     <Label Content="Brush Size" HorizontalAlignment="Left" 
-                           VerticalAlignment="Top" RenderTransformOrigin="0.539,-0.446" Height="25" Width="57"
-                           FontSize="10" Margin="299,44,0,0"/>
-                    <Button x:Name ="Save" HorizontalAlignment="Left" Margin="728,10,0,0" VerticalAlignment="Top"  
-                        Height="14" Width="30" Click="Save_Click" Style="{StaticResource myButton}"
+                           VerticalAlignment="Top" RenderTransformOrigin="0.539,-0.446" Height="21" Width="57"
+                           FontSize="10" Margin="299,-4,0,0"/>
+                    <Button x:Name ="Save" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"  
+                        Height="25" Width="35" Click="Save_Click" Style="{StaticResource myButton}"
                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-                        <Image Source="/Resources/Rectangle.png" Width="20" Height="20"/>
+                        <Image Source="/Resources/Save.png" Width="20" Height="20"/>
                     </Button>
-                    <Button x:Name ="Open" HorizontalAlignment="Left" Margin="728,30,0,0" VerticalAlignment="Top"  
-                        Height="15" Width="30" Click="Open_Click" Style="{StaticResource myButton}"
+                    <Button x:Name ="Open" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top"  
+                        Height="25" Width="35" Click="Open_Click" Style="{StaticResource myButton}"
                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-                        <Image Source="/Resources/Rectangle.png" Width="20" Height="20"/>
+                        <Image Source="/Resources/Open.png" Width="20" Height="20"/>
                     </Button>
-                    <Button x:Name ="New" HorizontalAlignment="Left" Margin="728,50,0,0" VerticalAlignment="Top"  
-                        Height="15" Width="30" Click="New_Click" Style="{StaticResource myButton}"
+                    <Button x:Name ="Print" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top"  
+                        Height="25" Width="35" Click="Print_Click" Style="{StaticResource myButton}"
                         HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-                        <Image Source="/Resources/Rectangle.png" Width="20" Height="20"/>
+                        <Image Source="/Resources/Print.png" Width="20" Height="20"/>
                     </Button>
 
                 </Grid>

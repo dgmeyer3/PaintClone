@@ -182,17 +182,21 @@ namespace PaintClone
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-
+            SaveFileDialog saveDlg = new SaveFileDialog();
+            saveDlg.ShowDialog();
+            saveDlg.DefaultExt = ".bmp";
         }
 
         private void Open_Click(object sender, RoutedEventArgs e)
         {
-
+            OpenFileDialog openDlg= new OpenFileDialog();
+            openDlg.ShowDialog();
         }
 
-        private void New_Click(object sender, RoutedEventArgs e)
+        private void Print_Click(object sender, RoutedEventArgs e)
         {
-
+            PrintDialog printDlg = new PrintDialog();
+            printDlg.ShowDialog();
         }
     }
 }
