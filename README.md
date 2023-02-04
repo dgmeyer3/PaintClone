@@ -1,2 +1,2 @@
 # PaintClone
-WPF app MS paint clone
+a clone of the popular Microsoft Paint application
