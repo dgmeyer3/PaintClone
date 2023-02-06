@@ -157,10 +157,10 @@
 
         </TabControl>
 
-        <Canvas x:Name="myOverlayCanvas" Height="450" Width="800" Background="White" 
+        <Canvas x:Name="myOverlayCanvas" Height="450" Width="500" Background="White" 
                 MouseDown="myOverlayCanvas_MouseDown" MouseMove="myOverlayCanvas_MouseMove" 
                 MouseUp="myOverlayCanvas_MouseUp">
-            <InkCanvas Name="inkCanvas" Height ="450" Width="800">
+            <InkCanvas Name="inkCanvas" Height ="450" Width="500">
                 <InkCanvas.DefaultDrawingAttributes>
                     <DrawingAttributes x:Name="strokeAttr"
                     Color="Black" Width="3"
