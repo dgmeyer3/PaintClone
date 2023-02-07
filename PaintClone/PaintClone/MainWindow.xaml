@@ -62,7 +62,7 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-
+                
     </Window.Resources>
 
     <DockPanel>
@@ -93,25 +93,35 @@
                             HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                         <Image Source="Resources/Ellipse.png"/>
                     </Button>
-                    <Button  x:Name ="Red" Margin="179,16,0,0" VerticalAlignment="Top" Background="Red" Style="{StaticResource paintButton}" 
+                    <Button  x:Name ="Red" Margin="179,16,0,0" VerticalAlignment="Top" Background="Red" 
+                             Style="{StaticResource paintButton}" 
                             Click="ColorChange_click" />
-                    <Button  Name ="Orange" Margin="179,40,0,0" VerticalAlignment="Top" Background="Orange" Style="{StaticResource paintButton}"
+                    <Button  Name ="Orange" Margin="179,40,0,0" VerticalAlignment="Top" Background="Orange" 
+                             Style="{StaticResource paintButton}"
                             Click="ColorChange_click" />
-                    <Button  Name ="Yellow" Margin="204,16,0,0" VerticalAlignment="Top" Background="Yellow" Style="{StaticResource paintButton}"
+                    <Button  Name ="Yellow" Margin="204,16,0,0" VerticalAlignment="Top" Background="Yellow" 
+                             Style="{StaticResource paintButton}"
                             Click="ColorChange_click" />
-                    <Button  Name ="Green" Margin="204,40,0,0" VerticalAlignment="Top" Background="Green" Style="{StaticResource paintButton}"
+                    <Button  Name ="Green" Margin="204,40,0,0" VerticalAlignment="Top" Background="Green" 
+                             Style="{StaticResource paintButton}"
                             Click="ColorChange_click" />
-                    <Button  Name ="Blue" Margin="229,16,0,0" VerticalAlignment="Top" Background="Blue" Style="{StaticResource paintButton}"
+                    <Button  Name ="Blue" Margin="229,16,0,0" VerticalAlignment="Top" Background="Blue" 
+                             Style="{StaticResource paintButton}"
                             Click="ColorChange_click" />
-                    <Button  Name ="Indigo" Margin="229,40,0,0" VerticalAlignment="Top" Background="Indigo" Style="{StaticResource paintButton}"
+                    <Button  Name ="Indigo" Margin="229,40,0,0" VerticalAlignment="Top" Background="Indigo" 
+                             Style="{StaticResource paintButton}"
                             Click="ColorChange_click" />
-                    <Button  Name ="Violet" Margin="254,16,0,0" VerticalAlignment="Top" Background="Violet" Style="{StaticResource paintButton}"
+                    <Button  Name ="Violet" Margin="254,16,0,0" VerticalAlignment="Top" Background="Violet" 
+                             Style="{StaticResource paintButton}"
                             Click="ColorChange_click" />
-                    <Button  Name ="Purple" Margin="254,40,0,0" VerticalAlignment="Top" Background="Purple" Style="{StaticResource paintButton}"
+                    <Button  Name ="Purple" Margin="254,40,0,0" VerticalAlignment="Top" Background="Purple" 
+                             Style="{StaticResource paintButton}"
                             Click="ColorChange_click" />
-                    <Button  Name ="Black" Margin="279,16,0,0" VerticalAlignment="Top" Background="Black" Style="{StaticResource paintButton}"
+                    <Button  Name ="Black" Margin="279,16,0,0" VerticalAlignment="Top" Background="Black" 
+                             Style="{StaticResource paintButton}"
                             Click="ColorChange_click" />
-                    <Button  Name ="White" Margin="279,40,0,0" VerticalAlignment="Top" Background="White" Style="{StaticResource paintButton}"
+                    <Button  Name ="White" Margin="279,40,0,0" VerticalAlignment="Top" Background="White" 
+                             Style="{StaticResource paintButton}"
                             Click="ColorChange_click" />
                     <Label Content="Shape" HorizontalAlignment="Left" Margin="395,-4,0,0" VerticalAlignment="Top"
                            FontSize="10"/>

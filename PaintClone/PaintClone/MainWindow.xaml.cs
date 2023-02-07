@@ -27,8 +27,6 @@ namespace PaintClone
         Point prevPoint;
         Point currPoint;
 
-
-
         public MainWindow()
         {
             InitializeComponent();
@@ -82,7 +80,7 @@ namespace PaintClone
                 currPoint = e.GetPosition(this);
             }
         }
-
+        //set shapes from buttonclick
         private void myOverlayCanvas_MouseUp(object sender, MouseButtonEventArgs e)
         {
             switch (currShape)
@@ -98,6 +96,8 @@ namespace PaintClone
                     break;
             }
         }
+        //draw shapes set to mouse up, should be mouse down so you can see the shape being created. refresh() needed for that
+
         private void DrawRectangle()
         {
             Color color = (Color)ColorConverter.ConvertFromString(colorStr);
@@ -169,7 +169,6 @@ namespace PaintClone
             strokeAttr.Height += 1;
         }
 
-
         //i probably need to update brushdouble here so it can go in the label brushSize.Content test
         private void downSize_Click(object sender, RoutedEventArgs e)
         {
@@ -180,6 +179,7 @@ namespace PaintClone
             }
         }
 
+        //fix save/open button to actually do things
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             SaveFileDialog saveDlg = new SaveFileDialog();
