@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace PaintClone
 {
@@ -71,6 +72,7 @@ namespace PaintClone
         private void myOverlayCanvas_MouseDown(object sender, MouseButtonEventArgs e)
         {
             prevPoint = e.GetPosition(this);
+
         }
 
         private void myOverlayCanvas_MouseMove(object sender, MouseEventArgs e)
@@ -117,6 +119,7 @@ namespace PaintClone
             newRect.Height = Math.Abs(currPoint.Y - prevPoint.Y);
 
             myOverlayCanvas.Children.Add(newRect);
+            newRect.InvalidateVisual();
         }
         private void DrawCircle()
         {
